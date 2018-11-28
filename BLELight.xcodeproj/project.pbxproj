@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2A9480E6638BF7ACB9CF0B1C /* Pods_BLELight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55ABF157FC8FD7ECFF9CA9E /* Pods_BLELight.framework */; };
+		9E352E99217FF79300105CFD /* SpeechReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E352E98217FF79300105CFD /* SpeechReport.swift */; };
+		9E352E9E217FF88400105CFD /* Yinyue.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9E352E9D217FF88400105CFD /* Yinyue.mp3 */; };
 		9E66594F211A719600AF9053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66594E211A719600AF9053 /* AppDelegate.swift */; };
 		9E665951211A719600AF9053 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E665950211A719600AF9053 /* ViewController.swift */; };
 		9E665954211A719600AF9053 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E665952211A719600AF9053 /* Main.storyboard */; };
@@ -20,7 +22,7 @@
 		9E665982211A75D800AF9053 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E665981211A75D800AF9053 /* Common.swift */; };
 		9E665984211A7B1800AF9053 /* LightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E665983211A7B1800AF9053 /* LightController.swift */; };
 		9E665986211A8BAC00AF9053 /* SendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E665985211A8BAC00AF9053 /* SendController.swift */; };
-		9E66598A211AC65E00AF9053 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E665989211AC65E00AF9053 /* CoreBluetooth.framework */; };
+		9E7467662148F15200BFD574 /* Single.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7467652148F15200BFD574 /* Single.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		3FA8FB5C2A316C1D8C458583 /* Pods-BLELight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLELight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLELight/Pods-BLELight.debug.xcconfig"; sourceTree = "<group>"; };
+		9E352E98217FF79300105CFD /* SpeechReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechReport.swift; sourceTree = "<group>"; };
+		9E352E9D217FF88400105CFD /* Yinyue.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Yinyue.mp3; sourceTree = "<group>"; };
 		9E66594B211A719600AF9053 /* BLELight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLELight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E66594E211A719600AF9053 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E665950211A719600AF9053 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +64,7 @@
 		9E665981211A75D800AF9053 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		9E665983211A7B1800AF9053 /* LightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightController.swift; sourceTree = "<group>"; };
 		9E665985211A8BAC00AF9053 /* SendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendController.swift; sourceTree = "<group>"; };
-		9E665989211AC65E00AF9053 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		9E7467652148F15200BFD574 /* Single.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Single.swift; sourceTree = "<group>"; };
 		F55ABF157FC8FD7ECFF9CA9E /* Pods_BLELight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLELight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C84A100605C254F6A42374 /* Pods-BLELight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLELight.release.xcconfig"; path = "Pods/Target Support Files/Pods-BLELight/Pods-BLELight.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,7 +74,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E66598A211AC65E00AF9053 /* CoreBluetooth.framework in Frameworks */,
 				2A9480E6638BF7ACB9CF0B1C /* Pods_BLELight.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,9 +104,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9E352E9A217FF7F900105CFD /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9E352E9D217FF88400105CFD /* Yinyue.mp3 */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		9E665942211A719600AF9053 = {
 			isa = PBXGroup;
 			children = (
+				9E352E9A217FF7F900105CFD /* Resource */,
 				9E66597C211A729100AF9053 /* Common */,
 				9E66594D211A719600AF9053 /* BLELight */,
 				9E665962211A719700AF9053 /* BLELightTests */,
@@ -161,7 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				9E66597D211A729E00AF9053 /* BLEConnect.swift */,
+				9E7467652148F15200BFD574 /* Single.swift */,
 				9E665981211A75D800AF9053 /* Common.swift */,
+				9E352E98217FF79300105CFD /* SpeechReport.swift */,
 				9E66597F211A74FD00AF9053 /* DispatchTimer.swift */,
 			);
 			path = Common;
@@ -170,7 +184,6 @@
 		F36274BF38787574819A8A82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9E665989211AC65E00AF9053 /* CoreBluetooth.framework */,
 				F55ABF157FC8FD7ECFF9CA9E /* Pods_BLELight.framework */,
 			);
 			name = Frameworks;
@@ -183,11 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E665973211A719800AF9053 /* Build configuration list for PBXNativeTarget "BLELight" */;
 			buildPhases = (
-				F20B92DEB2713E5FA169A9AD /* [CP] Check Pods Manifest.lock */,
+				B5306620C373BA05F3FF4064 /* [CP] Check Pods Manifest.lock */,
 				9E665947211A719600AF9053 /* Sources */,
 				9E665948211A719600AF9053 /* Frameworks */,
 				9E665949211A719600AF9053 /* Resources */,
-				DA7FF7ADF65A32BA5B6DDE8A /* [CP] Embed Pods Frameworks */,
+				1F8D70D82C520A98AA0CD6A6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -287,6 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E352E9E217FF88400105CFD /* Yinyue.mp3 in Resources */,
 				9E665959211A719700AF9053 /* LaunchScreen.storyboard in Resources */,
 				9E665956211A719700AF9053 /* Assets.xcassets in Resources */,
 				9E665954211A719600AF9053 /* Main.storyboard in Resources */,
@@ -310,13 +324,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		DA7FF7ADF65A32BA5B6DDE8A /* [CP] Embed Pods Frameworks */ = {
+		1F8D70D82C520A98AA0CD6A6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BLELight/Pods-BLELight-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-BLELight/Pods-BLELight-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
@@ -327,10 +341,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BLELight/Pods-BLELight-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BLELight/Pods-BLELight-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F20B92DEB2713E5FA169A9AD /* [CP] Check Pods Manifest.lock */ = {
+		B5306620C373BA05F3FF4064 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -356,11 +370,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E66597E211A729E00AF9053 /* BLEConnect.swift in Sources */,
+				9E7467662148F15200BFD574 /* Single.swift in Sources */,
 				9E665951211A719600AF9053 /* ViewController.swift in Sources */,
 				9E66594F211A719600AF9053 /* AppDelegate.swift in Sources */,
 				9E665986211A8BAC00AF9053 /* SendController.swift in Sources */,
 				9E665982211A75D800AF9053 /* Common.swift in Sources */,
 				9E665984211A7B1800AF9053 /* LightController.swift in Sources */,
+				9E352E99217FF79300105CFD /* SpeechReport.swift in Sources */,
 				9E665980211A74FD00AF9053 /* DispatchTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,12 +483,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -521,12 +538,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
@@ -538,18 +556,26 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 98UWL7XJ43;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Common",
+				);
 				INFOPLIST_FILE = BLELight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kujia.bluelight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "166275be-2f01-40fc-86ad-9309cd9361a0";
 				PROVISIONING_PROFILE_SPECIFIER = BlueLight;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -561,18 +587,26 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 98UWL7XJ43;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Common",
+				);
 				INFOPLIST_FILE = BLELight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kujia.bluelight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "166275be-2f01-40fc-86ad-9309cd9361a0";
 				PROVISIONING_PROFILE_SPECIFIER = BlueLight;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};

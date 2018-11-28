@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A725D79BCAFFB0866B5D5FBE6EBC91F9"
+               BlueprintIdentifier = "E5E95C9EFB91AE383575E6B820A8D1A0"
                BuildableName = "Pods_BLELight.framework"
                BlueprintName = "Pods-BLELight"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A725D79BCAFFB0866B5D5FBE6EBC91F9"
+            BlueprintIdentifier = "E5E95C9EFB91AE383575E6B820A8D1A0"
             BuildableName = "Pods_BLELight.framework"
             BlueprintName = "Pods-BLELight"
             ReferencedContainer = "container:Pods.xcodeproj">

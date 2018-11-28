@@ -36,9 +36,13 @@ class BLEConnect: NSObject {
     override init() {
         super.init()
         centralManager = CBCentralManager(delegate: self, queue: nil,
-                                          options: [CBCentralManagerOptionShowPowerAlertKey : true])
+                                          options: [CBCentralManagerOptionShowPowerAlertKey : false])
         // 初始化
         pthread_mutex_init(&mutex, nil)
+    }
+    
+    deinit {
+        pthread_mutex_destroy(&mutex);  //释放该锁的数据结构
     }
     
     public func centralScan(_ isStop: Bool){
@@ -46,7 +50,16 @@ class BLEConnect: NSObject {
         if isStop {
             centralManager.stopScan()
         } else {
-            centralManager?.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
+            /*
+             [CBUUID(string: "0000FF10-0000-1000-8000-00805F9B34FB"),
+             CBUUID(string: "FF11"),
+             CBUUID(string: "FF12"),
+             CBUUID(string: "FFE0"),
+             CBUUID(string: "FFE1"),
+             CBUUID(string: "FFE2")]
+             */
+            centralManager?.scanForPeripherals(withServices: nil,
+                                               options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
         }
     }
     
@@ -67,7 +80,7 @@ class BLEConnect: NSObject {
         centralManager.cancelPeripheralConnection(peripheral)
     }
         
-    public func sendData(_ data: Data) -> (){
+    public func sendData(_ data: Data) {
         guard data.count != 0 else {
             return
         }
@@ -95,7 +108,7 @@ extension BLEConnect: CBCentralManagerDelegate {
             centralManager?.scanForPeripherals(withServices: nil, options: nil)
             break
         case .poweredOff:
-            print("蓝牙未开启")
+            TimeLog("蓝牙未开启")
             break
         default:
             alert("蓝牙不支持")
@@ -105,10 +118,10 @@ extension BLEConnect: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         
-        guard peripheral.name != nil else {
-            return
-        }
-        
+//        guard peripheral.name != nil else {
+//            return
+//        }
+//
         print("Name: \(peripheral.name ?? "")")
         print("count: \(advertisementData.count)")
         
@@ -117,7 +130,7 @@ extension BLEConnect: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         
-        print("didConnect")
+        TimeLog("didConnect")
         self.centralManager?.stopScan()
         self.peripheral = peripheral
         self.peripheral?.delegate = self
@@ -130,12 +143,12 @@ extension BLEConnect: CBCentralManagerDelegate {
         self.peripheral = nil
         self.delegate?.connectResult?(false)
         
-        print("FailToConnect")
+        TimeLog("FailToConnect")
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         
-        print("didDisconnectPeripheral")
+        TimeLog("didDisconnectPeripheral")
         self.delegate?.connectResult?(false)
         
         if !drivingDis {
@@ -167,7 +180,7 @@ extension BLEConnect: CBPeripheralDelegate {
         
         for character in service.characteristics! {
             
-            //print("character: \(character)")
+            TimeLog("character: \(character)" )
             
             peripheral.setNotifyValue(true, for: character)
             
@@ -179,10 +192,11 @@ extension BLEConnect: CBPeripheralDelegate {
         self.delegate?.updateService?(service)
     }
     
+    //写入的数据回调
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         
         guard error != nil else { return }
-        
+                
         if characteristic.value != nil {
             
             if let content: String = String(data: characteristic.value!, encoding: .utf16) {
@@ -199,8 +213,9 @@ extension BLEConnect: CBPeripheralDelegate {
             return
         }
         
-        print("蓝牙状态变化")
+        TimeLog("蓝牙状态变化")
     }
+    
     //获取 收到的 数据
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         
@@ -210,8 +225,10 @@ extension BLEConnect: CBPeripheralDelegate {
         
         if let content: String = String(data: data, encoding: codeType) {
             
-            print("监听接收:content: \(content)")
-            
+            if content.count > 6 {
+                TimeLog("Receive: \(content.prefix(6))")
+            }
+                        
             self.delegate?.updateReadValue?(content)
         }
     }

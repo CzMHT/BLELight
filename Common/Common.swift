@@ -33,6 +33,19 @@ let TAB_BAR_HEIGHT: CGFloat = (iPhoneX ? (49.0+34.0) : 49.0)
 // home indicator
 let HOME_INDICATOR_HEIGHT: CGFloat = (iPhoneX ? 34.0 : 0.0)
 
+
+func isIphoneX() -> Bool {
+    guard UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone else {
+        return false
+    }
+    if #available(iOS 11.0 ,* ) {
+        if ((UIApplication.shared.delegate?.window)!)!.safeAreaInsets.bottom > 0.0 {
+            return true
+        }
+    }
+    return false
+}
+
 func Log<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
     
     #if DEBUG
@@ -57,7 +70,7 @@ func TimeLog<T>(_ message : T, file : String = #file, funcName : String = #funct
     
     let fileName = (file as NSString).lastPathComponent
     
-    print("\(strNowTime)-\(fileName)-(\(lineNum)) : \(message)")
+    print("\(strNowTime)-\(fileName)-(\(lineNum)): \(message)")
     
     #endif
 }
@@ -91,3 +104,27 @@ extension DispatchTime: ExpressibleByFloatLiteral {
     }
 }
 
+/// 随机字符串生成
+extension String{
+    static let random_str_characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    static func randomStr(len: Int) -> String{
+        var ranStr = ""
+        for _ in 0..<len {
+            let index = Int(arc4random_uniform(UInt32(random_str_characters.count)))
+            ranStr.append(random_str_characters[random_str_characters.index(random_str_characters.startIndex, offsetBy: index)])
+        }
+        return ranStr
+    }
+}
+
+func DispatchTimers(timeInterval: Double, handler:@escaping (DispatchSourceTimer?)->()) {
+    
+    let timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.global())
+    timer.schedule(deadline: .now(), repeating: timeInterval)
+    timer.setEventHandler {
+        DispatchQueue.main.async {
+            handler(timer)
+        }
+    }
+    timer.resume()
+}
