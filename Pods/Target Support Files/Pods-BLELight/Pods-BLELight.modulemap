@@ -1,6 +1,0 @@
-framework module Pods_BLELight {
-  umbrella header "Pods-BLELight-umbrella.h"
-
-  export *
-  module * { export * }
-}
